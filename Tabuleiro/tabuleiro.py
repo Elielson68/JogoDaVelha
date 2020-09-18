@@ -105,14 +105,14 @@ class Tabuleiro():
         Formata o tabuleiro e retorna ele em forma de string.
         :return: String
         '''
-        tabuleiro_formatado = "\t1\t2\t3\n"
-        casas = ["A: ", "B: ", "C: "]
+        tabuleiro_formatado = "\t 1\t 2\t 3\n"
+        casas = ["A: \t", "B: \t", "C: \t"]
         i = 0
         for x in self.casas:
             tabuleiro_formatado += casas[i]
             i += 1
             for y in x:
-                tabuleiro_formatado += y+" "
+                tabuleiro_formatado += y+"\t"
             tabuleiro_formatado += "\n"
         return tabuleiro_formatado
 
