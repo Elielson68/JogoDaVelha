@@ -72,3 +72,10 @@ class Jogador():
         :return: String
         '''
         return self.simbolo
+
+    def ResetarMovimentos(self) -> None:
+        '''
+        Reseta a lista de movimentos realizados
+        :return: None
+        '''
+        self.movimentos = []

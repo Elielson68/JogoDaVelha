@@ -134,8 +134,8 @@ class Tabuleiro():
         '''
         jogador_win = self.RevezarVez()
         for i in self.sequencia_vitorias:
-            nova_lista = [x for x in self.getJogadores()[jogador_win].getMovimento() if x in i]
-            if nova_lista in self.sequencia_vitorias:
+            lista_sequencia_1 = [x for x in self.getJogadores()[jogador_win].getMovimento() if x in i]
+            if len(lista_sequencia_1) == 3:
                 return True
         return False
 
@@ -145,3 +145,10 @@ class Tabuleiro():
         :return: Number int
         '''
         return 0 if self.getVez() else 1
+
+    def ResetarCasas(self) -> None:
+        '''
+        Reseta as casas pro valor padrão inicial
+        :return: None
+        '''
+        self.casas = [["[-]"] * 3, ["[-]"] * 3, ["[-]"] * 3]
