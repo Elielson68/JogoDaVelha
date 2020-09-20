@@ -44,12 +44,14 @@ while True:
             if tabu.isGanhador():
                 tabu.setVez(tabu.RevezarVez())
                 print("O ganhador é ", tabu.getNomeJogadorDaVez())
-                CPU.ResetarCPU()
                 if tabu.getNomeJogadorDaVez() == CPU.getNome():
                     if not CPU.isJogadaEmArquivo():
                         CPU.SalvarJogada()
+                CPU.ResetarCPU()
                 usuario = JogarNovamente(tabu, jogador1, CPU)
                 if usuario == 1:
+                    CPU.CarregarJogadas()
+                    CPU.SelecionarJogada()
                     continue
                 if usuario == 2:
                     break
@@ -63,12 +65,12 @@ while True:
                     break
             print("Vez dê ", tabu.getNomeJogadorDaVez())
             jogada = ""
-            if tabu.getNomeJogadorDaVez()==jogador1.getNome():
+            if tabu.getNomeJogadorDaVez() == jogador1.getNome():
                 jogada = input("Digite sua jogada: ")
             else:
                 jogada = CPU.ProximaJogada()
                 print(jogada)
-                if not tabu.isJogadaValida(jogada):
+                if not tabu.isJogadaEstaNoDecodificador(jogada):
                     movimento_CPU = CPU.getMovimentoCPU()
                     jogada = tabu.getListKeysDecodificador()[movimento_CPU]
             tabu.setJogada(jogada)

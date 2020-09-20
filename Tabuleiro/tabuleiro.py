@@ -40,7 +40,7 @@ class Tabuleiro():
         :param jogada: String
         :return: None
         '''
-        if self.isJogadaValida(jogada) and jogada in self.decodificador:
+        if self.isJogadaValida(jogada) and self.isJogadaEstaNoDecodificador(jogada):
             linha = self.decodificador[jogada][0]
             coluna = self.decodificador[jogada][1]
             self.casas[linha][coluna] = "["+self.jogadores[self.vez].getSimbolo()+"]"
@@ -58,6 +58,14 @@ class Tabuleiro():
             return False
         else:
             return True
+
+    def isJogadaEstaNoDecodificador(self, jogada:str) -> bool:
+        '''
+        Retorna se a jogada feita está dentro do decodificador
+        :param jogada: Sring
+        :return: Bool
+        '''
+        return jogada in self.decodificador
 
     def setJogadores(self, jogador: Jogador) -> None:
         '''
@@ -161,5 +169,9 @@ class Tabuleiro():
         '''
         self.casas = [["[-]"] * 3, ["[-]"] * 3, ["[-]"] * 3]
 
-    def RemoverJogadores(self):
+    def RemoverJogadores(self) -> None:
+        '''
+        Remove todos os jogadores
+        :return: None
+        '''
         self.jogadores = []
