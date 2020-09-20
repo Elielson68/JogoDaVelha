@@ -3,15 +3,11 @@ class Jogador():
         Essa é uma classe para instanciar um objeto jogador.
 
     """
-    def __init__(self, nome=None):
+
+    def __init__(self, nome=None, simbolo=None):
         self.nome = nome or "Player 1"
         self.movimentos = []
-        self.tabela_potuacao = {"A1": 7, "A2": 8, "A3": 9,
-                                "B1": 4, "B2": 5, "B3": 6,
-                                "C1": 1, "C2": 2, "C3": 3
-                              }
-        self.pontuacao = 0
-        self.simbolo = "X"
+        self.simbolo = simbolo or "X"
 
     def setMovimento(self, movimento: str) -> None:
         '''
@@ -20,21 +16,6 @@ class Jogador():
         :return: None
         '''
         self.movimentos.append(movimento)
-
-    def setPontuacao(self, ponto: int) -> None:
-        '''
-        Define a pontuação do objeto.
-        :param ponto: Number int
-        :return: None
-        '''
-        self.pontuacao += self.tabela_potuacao[ponto]
-
-    def getPontuacao(self) -> int:
-        '''
-        Retorna a pontuação atual do objeto.
-        :return: Number int
-        '''
-        return self.pontuacao
 
     def getMovimento(self) -> list:
         '''

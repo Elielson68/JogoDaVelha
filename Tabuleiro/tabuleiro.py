@@ -5,16 +5,18 @@ class Tabuleiro():
     """
     def __init__(self):
         self.casas = [["[-]"] * 3, ["[-]"] * 3, ["[-]"] * 3]
-        self.decodificador = {"A1": [0, 0], "A2": [0, 1], "A3": [0, 2],
+        self.decodificador = {
+                              "A1": [0, 0], "A2": [0, 1], "A3": [0, 2],
                               "B1": [1, 0], "B2": [1, 1], "B3": [1, 2],
                               "C1": [2, 0], "C2": [2, 1], "C3": [2, 2]
                               }
         self.vez = 0
         self.jogadores = []
-        self.sequencia_vitorias = [["A1", "A2", "A3"], ["B1", "B2", "B3"], ["C1", "C2", "C3"],
+        self.sequencia_vitorias = [
+                                   ["A1", "A2", "A3"], ["B1", "B2", "B3"], ["C1", "C2", "C3"],
                                    ["A1", "B1", "C1"], ["A2", "B2", "C2"], ["A3", "B3", "C3"],
                                    ["A1", "B2", "C3"], ["C1", "B2", "A3"]
-                                   ]
+                                  ]
 
     def getCasas(self) -> None:
         '''
@@ -22,6 +24,13 @@ class Tabuleiro():
         :return: List
         '''
         return self.casas
+
+    def getListKeysDecodificador(self) -> list:
+        '''
+        Retorna uma lista com as chaves do decodificador.
+        :return: List
+        '''
+        return list(self.decodificador.keys())
 
     def setJogada(self, jogada: str) -> None:
         '''
@@ -36,7 +45,6 @@ class Tabuleiro():
             coluna = self.decodificador[jogada][1]
             self.casas[linha][coluna] = "["+self.jogadores[self.vez].getSimbolo()+"]"
             self.jogadores[self.vez].setMovimento(jogada)
-            self.jogadores[self.vez].setPontuacao(jogada)
             nova_vez = self.RevezarVez()
             self.setVez(nova_vez)
 
@@ -132,10 +140,10 @@ class Tabuleiro():
         Retorna verdadeiro caso o jogador da última rodada tenha ganhado fazendo algumas das sequências de vitória.
         :return: Bool
         '''
-        jogador_win = self.RevezarVez()
-        for i in self.sequencia_vitorias:
-            lista_sequencia_1 = [x for x in self.getJogadores()[jogador_win].getMovimento() if x in i]
-            if len(lista_sequencia_1) == 3:
+        vez_do_jogador_anterior = self.RevezarVez()
+        for sequencia_de_movimentos_para_vitoria in self.sequencia_vitorias:
+            lista_de_movimentos = [movimento for movimento in self.jogadores[vez_do_jogador_anterior].getMovimento() if movimento in sequencia_de_movimentos_para_vitoria]
+            if len(lista_de_movimentos) == 3:
                 return True
         return False
 
@@ -152,3 +160,6 @@ class Tabuleiro():
         :return: None
         '''
         self.casas = [["[-]"] * 3, ["[-]"] * 3, ["[-]"] * 3]
+
+    def RemoverJogadores(self):
+        self.jogadores = []
