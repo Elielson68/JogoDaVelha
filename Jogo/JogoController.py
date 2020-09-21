@@ -9,7 +9,8 @@ def MenuOpcoes() -> None:
     print("\t\tJOGO DA VELHA\n")
     print("1 - Jogar contra outro Player")
     print("2 - Jogar contra CPU")
-    print("3 - Sair")
+    print("3 - Personalizar jogo")
+    print("4 - Sair")
 
 def JogarNovamente(tabuleiro: Tabuleiro, jogador1: Jogador, jogador2: Jogador)->int:
     '''
@@ -20,5 +21,4 @@ def JogarNovamente(tabuleiro: Tabuleiro, jogador1: Jogador, jogador2: Jogador)->
     jogador1.ResetarMovimentos()
     jogador2.ResetarMovimentos()
     tabuleiro.ResetarCasas()
-    tabuleiro.setVez(0)
     return usuario

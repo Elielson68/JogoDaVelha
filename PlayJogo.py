@@ -41,7 +41,6 @@ while True:
         tabu.setJogadores(CPU)
         CPU.CarregarJogadas()
         CPU.SelecionarJogada()
-        tabu.setVez(1)
         while True:
             print(tabu.MostrarTabuleiro())
             if tabu.isGanhador():
@@ -77,12 +76,41 @@ while True:
                 jogada = input("Digite sua jogada: ")
             else:
                 jogada = CPU.ProximaJogada()
-                print(jogada)
                 if not tabu.isJogadaEstaNoDecodificador(jogada):
                     movimento_CPU = CPU.getMovimentoCPU()
                     jogada = tabu.getListKeysDecodificador()[movimento_CPU]
             tabu.setJogada(jogada)
         tabu.RemoverJogadores()
+    elif usuario==3:
+        while True:
+            print("Escolha uma das opções para personalizar o que deseja:\n1 - Personalizar Nome dos players\n2 - Personalizar Símbolo dos players\n3 - Voltar ao menu principal")
+            usuario = int(input("Você: "))
+            if usuario==1:
+                opcao = int(input("1 - Personalizar o nome do Player 1\n2 - Personalizar o nome do Player 2\n3 - Personalizar o nome da CPU\n4 - Sair\nVocê: "))
+                novo_nome = input("Digite o novo nome: ")
+                if opcao == 1:
+                    jogador1.setNome(novo_nome)
+                elif opcao == 2:
+                    jogador2.setNome(novo_nome)
+                elif opcao == 3:
+                    CPU.setNome(novo_nome)
+                else:
+                    break
+                print("Nome alterado com sucesso!\n")
+            elif usuario == 2:
+                opcao = int(input("1 - Personalizar o símbolo do Player 1\n2 - Personalizar o símbolo do Player 2\n3 - Personalizar o símbolo da CPU\n4 - Sair\nVocê: "))
+                novo_simbolo = input("Digite o novo símbolo: ")
+                if opcao == 1:
+                    jogador1.setSimbolo(novo_simbolo)
+                elif opcao == 2:
+                    jogador2.setSimbolo(novo_simbolo)
+                elif opcao == 3:
+                    CPU.setSimbolo(novo_simbolo)
+                else:
+                    break
+                print("Símbolo alterado com sucesso!\n")
+            else:
+                break
     else:
         print("Adios!")
         break

@@ -27,3 +27,6 @@ Exemplo de como marcar o primeiro quadrado abaixo:
     A: 	[X]	[-]	[-]	
     B: 	[-]	[-]	[-]	
     C: 	[-]	[-]	[-]	
+
+## 3. Como personalizar o jogo
+Quando tiver iniciado o jogo, você pode escolher a opção 3 do menu que dá a opção de você personalizar o nome dos dois players (que por padrão são iniciados como Player 1 e Player 2) ou o nome da CPU. Também é possível alterar o símbolo dos players e da CPU.
