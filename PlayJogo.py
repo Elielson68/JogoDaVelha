@@ -18,9 +18,11 @@ while True:
                 tabu.setVez(tabu.RevezarVez())
                 print("O ganhador é ", tabu.getNomeJogadorDaVez())
                 usuario = JogarNovamente(tabu, jogador1, jogador2)
-                if usuario:
+                if usuario == 1:
                     continue
-                if usuario == 2:
+                elif usuario == 2:
+                    break
+                else:
                     break
             if not tabu.isCasasDisponiveis():
                 print("Não houve ganhadores! Empate!")
