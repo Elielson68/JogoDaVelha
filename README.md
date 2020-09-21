@@ -33,3 +33,7 @@ Exemplo de como marcar o primeiro quadrado abaixo:
 
 ## 3. Como personalizar o jogo
 Quando tiver iniciado o jogo, você pode escolher a opção 3 do menu que dá a opção de você personalizar o nome dos dois players (que por padrão são iniciados como Player 1 e Player 2) ou o nome da CPU. Também é possível alterar o símbolo dos players e da CPU.
+
+## 4. CPU vs CPU
+
+Selecionando a 4 opção do menu, o jogo é jogado apenas por CPU, duas CPU's jogam aleatoriamente e vão registrando as jogadas vitoriosas no arquivo jogadas.txt e a partir daí elas começam a selecionar alguma jogada dentro do arquivo aleatoriamente.
