@@ -10,7 +10,8 @@ def MenuOpcoes() -> None:
     print("1 - Jogar contra outro Player")
     print("2 - Jogar contra CPU")
     print("3 - Personalizar jogo")
-    print("4 - Sair")
+    print("4 - Jogar CPU contra CPU")
+    print("5 - Sair")
 
 def JogarNovamente(tabuleiro: Tabuleiro, jogador1: Jogador, jogador2: Jogador)->int:
     '''

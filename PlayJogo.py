@@ -5,7 +5,9 @@ from Jogo.JogoController import JogarNovamente, MenuOpcoes
 tabu = Tabuleiro()
 jogador1 = Jogador("Player 1", "X")
 jogador2 = Jogador("Player 2", "O")
+CPU2 = CPU(nome="CPU 2",simbolo="X")
 CPU = CPU()
+
 while True:
     MenuOpcoes()
     usuario = int(input("Você: "))
@@ -82,7 +84,7 @@ while True:
                     jogada = tabu.getListKeysDecodificador()[movimento_CPU]
             tabu.setJogada(jogada)
         tabu.RemoverJogadores()
-    elif usuario==3:
+    elif usuario == 3:
         while True:
             print("Escolha uma das opções para personalizar o que deseja:\n1 - Personalizar Nome dos players\n2 - Personalizar Símbolo dos players\n3 - Voltar ao menu principal")
             usuario = int(input("Você: "))
@@ -112,6 +114,62 @@ while True:
                 print("Símbolo alterado com sucesso!\n")
             else:
                 break
+    elif usuario == 4:
+        tabu.setJogadores(CPU2)
+        tabu.setJogadores(CPU)
+        CPU.CarregarJogadas()
+        CPU.SelecionarJogada()
+        CPU2.CarregarJogadas()
+        CPU2.SelecionarJogada()
+        while True:
+            print(tabu.MostrarTabuleiro())
+            if tabu.isGanhador():
+                tabu.setVez(tabu.RevezarVez())
+                print("O ganhador é ", tabu.getNomeJogadorDaVez())
+                if tabu.getNomeJogadorDaVez() == CPU.getNome():
+                    CPU.SalvarJogada()
+                else:
+                    CPU2.SalvarJogada()
+                CPU.ResetarCPU()
+                CPU2.ResetarCPU()
+                usuario = JogarNovamente(tabu, CPU2, CPU)
+                if usuario == 1:
+                    CPU.CarregarJogadas()
+                    CPU.SelecionarJogada()
+                    CPU2.CarregarJogadas()
+                    CPU2.SelecionarJogada()
+                    continue
+                if usuario == 2:
+                    break
+            if not tabu.isCasasDisponiveis():
+                print("Não houve ganhadores! Empate!")
+                usuario = JogarNovamente(tabu, CPU2, CPU)
+                CPU.ResetarCPU()
+                CPU2.ResetarCPU()
+                if usuario == 1:
+                    continue
+                elif usuario == 2:
+                    break
+                else:
+                    break
+            print("Vez dê ", tabu.getNomeJogadorDaVez())
+            jogada = ""
+            if tabu.getNomeJogadorDaVez() == CPU2.getNome():
+                jogada = CPU.ProximaJogada()
+                print(jogada)
+                if not tabu.isJogadaEstaNoDecodificador(jogada):
+                    print("cpu 2")
+                    movimento_CPU = CPU.getMovimentoCPU()
+                    jogada = tabu.getListKeysDecodificador()[movimento_CPU]
+            else:
+                jogada = CPU.ProximaJogada()
+                print(jogada)
+                if not tabu.isJogadaEstaNoDecodificador(jogada):
+                    print("cpu 1")
+                    movimento_CPU = CPU.getMovimentoCPU()
+                    jogada = tabu.getListKeysDecodificador()[movimento_CPU]
+            tabu.setJogada(jogada)
+        tabu.RemoverJogadores()
     else:
         print("Adios!")
         break
