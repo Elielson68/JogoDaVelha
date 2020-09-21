@@ -20,7 +20,7 @@ class CPU(Jogador):
         '''
         Retorna None
         Salva as jogadas realizadas pela CPU em um arquivo chamado jogadas.txt
-        :return:
+        :return: None
         '''
         self.arquivo_com_jogadas = open("Tabuleiro/Jogadas_CPU/jogadas.txt", "a")
         jogadas_em_string = str(movimento or self.getMovimento())+'\n'
@@ -51,12 +51,12 @@ class CPU(Jogador):
             selecionar_jogada = randint(0, tamanho_lista_jogadas)
             self.jogadas_futuras = self.list_de_jogadas_futuras[selecionar_jogada]
 
-    def ProximaJogada(self) -> None:
+    def ProximaJogada(self) -> str:
         '''
         Verifica se a próxima jogada a ser feita está dentro do limite da lista de jogadas atual
         Verifica se a lista JogadasFuturas possui alguma jogada nela
         Caso as duas condições sejam verdadeiras, o programa insere +1 no atributo proxima_jogada e então retorna a próxima jogada a ser feita pela CPU
-        :return: None
+        :return: String
         '''
         jogada = ""
         if not self.isLimiteJogadasFuturas(self.proxima_jogada+1) and self.isValorEmJogadasFuturas():
@@ -75,20 +75,20 @@ class CPU(Jogador):
         else:
             return False
 
-    def isValorEmJogadasFuturas(self) -> None:
+    def isValorEmJogadasFuturas(self) -> bool:
         '''
         Verifica se há algum valor dentro do atributo jogadas_futuras
-        :return: None
+        :return: Bool
         '''
         if len(self.jogadas_futuras) > 0:
             return True
         else:
             return False
 
-    def isJogadaEmArquivo(self, movimento=None) -> None:
+    def isJogadaEmArquivo(self, movimento=None) -> bool:
         '''
         Verifica se a jogada atual já está inserida no atributo list_de_jogadas_futuras
-        :return: None
+        :return: Bool
         '''
         movimento_ganhador = movimento or self.movimentos
         return movimento_ganhador in self.list_de_jogadas_futuras
