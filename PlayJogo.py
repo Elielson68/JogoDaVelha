@@ -77,9 +77,7 @@ while True:
                 jogada = input("Digite sua jogada: ")
             else:
                 jogada = CPU.ProximaJogada()
-                print(jogada)
                 if not tabu.isJogadaEstaNoDecodificador(jogada):
-                    print("Entrou")
                     movimento_CPU = CPU.getMovimentoCPU()
                     jogada = tabu.getListKeysDecodificador()[movimento_CPU]
             tabu.setJogada(jogada)
@@ -156,16 +154,12 @@ while True:
             jogada = ""
             if tabu.getNomeJogadorDaVez() == CPU2.getNome():
                 jogada = CPU.ProximaJogada()
-                print(jogada)
                 if not tabu.isJogadaEstaNoDecodificador(jogada):
-                    print("cpu 2")
                     movimento_CPU = CPU.getMovimentoCPU()
                     jogada = tabu.getListKeysDecodificador()[movimento_CPU]
             else:
                 jogada = CPU.ProximaJogada()
-                print(jogada)
                 if not tabu.isJogadaEstaNoDecodificador(jogada):
-                    print("cpu 1")
                     movimento_CPU = CPU.getMovimentoCPU()
                     jogada = tabu.getListKeysDecodificador()[movimento_CPU]
             tabu.setJogada(jogada)
