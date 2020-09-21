@@ -16,14 +16,14 @@ class CPU(Jogador):
         '''
         return randint(0, 8)
 
-    def SalvarJogada(self) -> None:
+    def SalvarJogada(self, movimento=None) -> None:
         '''
         Retorna None
         Salva as jogadas realizadas pela CPU em um arquivo chamado jogadas.txt
         :return:
         '''
         self.arquivo_com_jogadas = open("Tabuleiro/Jogadas_CPU/jogadas.txt", "a")
-        jogadas_em_string = str(self.getMovimento())+'\n'
+        jogadas_em_string = str(movimento or self.getMovimento())+'\n'
         self.arquivo_com_jogadas.write(jogadas_em_string)
         self.arquivo_com_jogadas.close()
 
@@ -85,14 +85,13 @@ class CPU(Jogador):
         else:
             return False
 
-    def isJogadaEmArquivo(self) -> None:
+    def isJogadaEmArquivo(self, movimento=None) -> None:
         '''
         Verifica se a jogada atual já está inserida no atributo list_de_jogadas_futuras
         :return: None
         '''
-        print(self.movimentos)
-        print(self.list_de_jogadas_futuras)
-        return self.movimentos in self.list_de_jogadas_futuras
+        movimento_ganhador = movimento or self.movimentos
+        return movimento_ganhador in self.list_de_jogadas_futuras
 
     def ResetarCPU(self) -> None:
         '''

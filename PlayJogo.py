@@ -26,9 +26,11 @@ while True:
             if not tabu.isCasasDisponiveis():
                 print("Não houve ganhadores! Empate!")
                 usuario = JogarNovamente(tabu, jogador1, jogador2)
-                if usuario:
+                if usuario == 1:
                     continue
-                if usuario == 2:
+                elif usuario == 2:
+                    break
+                else:
                     break
             print("Vez dê ", tabu.getNomeJogadorDaVez())
             jogada = input("Digite sua jogada: ")
@@ -39,6 +41,7 @@ while True:
         tabu.setJogadores(CPU)
         CPU.CarregarJogadas()
         CPU.SelecionarJogada()
+        tabu.setVez(1)
         while True:
             print(tabu.MostrarTabuleiro())
             if tabu.isGanhador():
@@ -47,6 +50,9 @@ while True:
                 if tabu.getNomeJogadorDaVez() == CPU.getNome():
                     if not CPU.isJogadaEmArquivo():
                         CPU.SalvarJogada()
+                else:
+                    if not CPU.isJogadaEmArquivo(jogador1.getMovimento()):
+                        CPU.SalvarJogada(jogador1.getMovimento())
                 CPU.ResetarCPU()
                 usuario = JogarNovamente(tabu, jogador1, CPU)
                 if usuario == 1:
@@ -61,7 +67,9 @@ while True:
                 CPU.ResetarCPU()
                 if usuario == 1:
                     continue
-                if usuario == 2:
+                elif usuario == 2:
+                    break
+                else:
                     break
             print("Vez dê ", tabu.getNomeJogadorDaVez())
             jogada = ""
