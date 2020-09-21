@@ -6,7 +6,6 @@ tabu = Tabuleiro()
 jogador1 = Jogador("Player 1", "X")
 jogador2 = Jogador("Player 2", "O")
 CPU = CPU()
-
 while True:
     MenuOpcoes()
     usuario = int(input("Você: "))

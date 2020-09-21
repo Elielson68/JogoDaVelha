@@ -2,6 +2,9 @@
 
 
 ## 1. Como iniciar o jogo
+Primeiro baixe o projeto como .zip e extraia o arquivo em uma pasta desejada ou clone usando o comando abaixo em seu prompt de comando:
+
+    git clone https://github.com/Elielson68/JogoDaVelha.git
 
 Abra seu prompt de comando na pasta JogoDaVelha e então rode o comando:
 
