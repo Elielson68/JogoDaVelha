@@ -18,7 +18,7 @@ class Tabuleiro():
                                    ["A1", "B2", "C3"], ["C1", "B2", "A3"]
                                   ]
 
-    def getCasas(self) -> None:
+    def getCasas(self) -> list:
         '''
         Retorna a lista de casas do tabuleiro
         :return: List
@@ -59,7 +59,7 @@ class Tabuleiro():
         else:
             return True
 
-    def isJogadaEstaNoDecodificador(self, jogada:str) -> bool:
+    def isJogadaEstaNoDecodificador(self, jogada: str) -> bool:
         '''
         Retorna se a jogada feita está dentro do decodificador
         :param jogada: Sring

@@ -37,7 +37,7 @@ while True:
             jogada = input("Digite sua jogada: ")
             tabu.setJogada(jogada)
         tabu.RemoverJogadores()
-    elif usuario==2:
+    elif usuario == 2:
         tabu.setJogadores(jogador1)
         tabu.setJogadores(CPU)
         CPU.CarregarJogadas()
@@ -48,11 +48,9 @@ while True:
                 tabu.setVez(tabu.RevezarVez())
                 print("O ganhador é ", tabu.getNomeJogadorDaVez())
                 if tabu.getNomeJogadorDaVez() == CPU.getNome():
-                    if not CPU.isJogadaEmArquivo():
-                        CPU.SalvarJogada()
+                    CPU.SalvarJogada()
                 else:
-                    if not CPU.isJogadaEmArquivo(jogador1.getMovimento()):
-                        CPU.SalvarJogada(jogador1.getMovimento())
+                    CPU.SalvarJogada(jogador1.getMovimento())
                 CPU.ResetarCPU()
                 usuario = JogarNovamente(tabu, jogador1, CPU)
                 if usuario == 1:
@@ -77,7 +75,9 @@ while True:
                 jogada = input("Digite sua jogada: ")
             else:
                 jogada = CPU.ProximaJogada()
+                print(jogada)
                 if not tabu.isJogadaEstaNoDecodificador(jogada):
+                    print("Entrou")
                     movimento_CPU = CPU.getMovimentoCPU()
                     jogada = tabu.getListKeysDecodificador()[movimento_CPU]
             tabu.setJogada(jogada)

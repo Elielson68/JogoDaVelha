@@ -1,8 +1,9 @@
 class Jogador():
-    """
+    '''
+
         Essa é uma classe para instanciar um objeto jogador.
 
-    """
+    '''
 
     def __init__(self, nome=None, simbolo=None):
         self.nome = nome or "Player 1"

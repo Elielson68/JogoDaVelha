@@ -2,6 +2,12 @@ from .jogador import Jogador
 from random import randint
 
 class CPU(Jogador):
+    '''
+
+            Classe para instanciar objetos do tipo CPU.
+            A CPU é filha da superclasse Jogador.
+
+    '''
     def __init__(self, nome=None, simbolo=None):
         super().__init__(nome or "CPU", simbolo or "O")
         self.arquivo_com_jogadas = None
