@@ -11,7 +11,7 @@ CPU = CPU()
 while True:
     MenuOpcoes()
     usuario = int(input("Você: "))
-    if usuario==1:
+    if usuario == 1:
         tabu.setJogadores(jogador1)
         tabu.setJogadores(jogador2)
         while True:
@@ -59,7 +59,9 @@ while True:
                     CPU.CarregarJogadas()
                     CPU.SelecionarJogada()
                     continue
-                if usuario == 2:
+                elif usuario == 2:
+                    break
+                else:
                     break
             if not tabu.isCasasDisponiveis():
                 print("Não houve ganhadores! Empate!")
@@ -86,7 +88,7 @@ while True:
         while True:
             print("Escolha uma das opções para personalizar o que deseja:\n1 - Personalizar Nome dos players\n2 - Personalizar Símbolo dos players\n3 - Voltar ao menu principal")
             usuario = int(input("Você: "))
-            if usuario==1:
+            if usuario == 1:
                 opcao = int(input("1 - Personalizar o nome do Player 1\n2 - Personalizar o nome do Player 2\n3 - Personalizar o nome da CPU\n4 - Sair\nVocê: "))
                 novo_nome = input("Digite o novo nome: ")
                 if opcao == 1:
@@ -130,6 +132,10 @@ while True:
                     CPU2.SalvarJogada()
                 CPU.ResetarCPU()
                 CPU2.ResetarCPU()
+                CPU.CarregarJogadas()
+                CPU.SelecionarJogada()
+                CPU2.CarregarJogadas()
+                CPU2.SelecionarJogada()
                 usuario = JogarNovamente(tabu, CPU2, CPU)
                 if usuario == 1:
                     CPU.CarregarJogadas()
@@ -137,13 +143,19 @@ while True:
                     CPU2.CarregarJogadas()
                     CPU2.SelecionarJogada()
                     continue
-                if usuario == 2:
+                elif usuario == 2:
+                    break
+                else:
                     break
             if not tabu.isCasasDisponiveis():
                 print("Não houve ganhadores! Empate!")
-                usuario = JogarNovamente(tabu, CPU2, CPU)
                 CPU.ResetarCPU()
                 CPU2.ResetarCPU()
+                CPU.CarregarJogadas()
+                CPU.SelecionarJogada()
+                CPU2.CarregarJogadas()
+                CPU2.SelecionarJogada()
+                usuario = JogarNovamente(tabu, CPU2, CPU)
                 if usuario == 1:
                     continue
                 elif usuario == 2:
