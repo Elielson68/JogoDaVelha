@@ -5,7 +5,7 @@ with open("README.md", "r", encoding='utf-8') as fh:
 
 setuptools.setup(
     name="JogoDaVelha-Elielson68", # Replace with your own username
-    version="0.0.1",
+    version="0.0.2",
     author="Elielson Barbosa",
     author_email="elielsonbr.com@gmail.com",
     description="is a simples 'jogo da velha' game",
