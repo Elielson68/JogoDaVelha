@@ -165,9 +165,9 @@ def Play():
                 print("Vez dê ", tabu.getNomeJogadorDaVez())
                 jogada = ""
                 if tabu.getNomeJogadorDaVez() == CPU2.getNome():
-                    jogada = CPU.ProximaJogada()
+                    jogada = CPU2.ProximaJogada()
                     if not tabu.isJogadaEstaNoDecodificador(jogada):
-                        movimento_CPU = CPU.getMovimentoCPU()
+                        movimento_CPU = CPU2.getMovimentoCPU()
                         jogada = tabu.getListKeysDecodificador()[movimento_CPU]
                 else:
                     jogada = CPU.ProximaJogada()
