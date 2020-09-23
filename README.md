@@ -144,8 +144,10 @@ while True:
     if tabu.isGanhador(): #A cada jogada realizada será verificado se houve um ganhador
         tabu.setVez(tabu.RevezarVez()) #Como o ganhador foi o último jogador, então é necessário revezar a vez para o último jogador.
         print("O ganhador é ", tabu.getNomeJogadorDaVez())
+        break
     if not tabu.isCasasDisponiveis(): #Se ninguém tiver ganho, então é verificado se o tabuleiro ainda possui casas disponíveis.
         print("Não houve ganhadores! Empate!")
+        break
     print("Vez dê ", tabu.getNomeJogadorDaVez())
         jogada = input("Digite sua jogada: ")
         tabu.setJogada(jogada)
@@ -214,8 +216,10 @@ while True:
     if tabu.isGanhador(): #A cada jogada realizada será verificado se houve um ganhador
         tabu.setVez(tabu.RevezarVez()) #Como o ganhador foi o último jogador, então é necessário revezar a vez para o último jogador.
         print("O ganhador é ", tabu.getNomeJogadorDaVez())
+        break
     if not tabu.isCasasDisponiveis(): #Se ninguém tiver ganho, então é verificado se o tabuleiro ainda possui casas disponíveis.
         print("Não houve ganhadores! Empate!")
+        break
     print("Vez dê ", tabu.getNomeJogadorDaVez())
     jogada = ""
     if tabu.getNomeJogadorDaVez() == jogador1.getNome():
