@@ -150,3 +150,78 @@ while True:
         jogada = input("Digite sua jogada: ")
         tabu.setJogada(jogada)
 ```
+
+## 2.2. Jogador vs CPU
+
+Os passos para desenvolver jogador vs CPU são os mesmos que para jogador vs jogador, as únicas diferenças são apenas na hora de inserir os jogadores no tabuleiro e de inserir jogadas.
+
+### 2.2.1. Inserindo jogador e CPU no tabuleiro
+
+Como agora você deve inserir uma CPU ao invés do jogador_2, você deve importar a classe CPU do pacote Tabuleiro e então criar o objeto CPU e então inserir no tabuleiro_velha para isso utilize o código abaixo:
+
+```python
+from Tabuleiro.tabuleiro import Tabuleiro
+from Tabuleiro.jogador import Jogador
+from Tabuleiro.cpu import CPU
+tabuleiro_velha = Tabuleiro()
+jogador_1 = Jogador("Player 1", "X")
+CPU = CPU()
+tabuleiro_velha.setJogadores(jogador_1)
+tabuleiro_velha.setJogadores(CPU)
+```
+
+### 2.2.2. Verificando a vez de quem deve jogar
+
+Agora iremos verificar se a vez de quem deve jogar é do jogador_1 ou da CPU. Para isso utilizaremos uma condição simples em que ela verificará se o nome de quem tá jogando é do jogador_1 ou da CPU. Caso seja do jogador_1 então o programa pedirá para ele inserir sua jogada, caso seja da CPU a jogada será aleatória.
+
+Para verificarmos o nome de quem está jogando, utilizaremos o método <b>getNomeJogadorDaVez()</b> do objeto tabuleiro_velha.
+
+```python
+jogada = ""
+if tabu.getNomeJogadorDaVez() == jogador1.getNome():
+    jogada = input("Digite sua jogada: ")
+```
+
+### 2.2.3. Gerando jogada da CPU
+
+A CPU possui o método <b>getMovimentoCPU()</b> que retorna um número aleatório de 0 a 8, representando os 9 valores possíveis no tabuleiro. O tabuleiro possui o método <b>getListKeysDecodificador()</b> que retorna uma lista com todas as casas no formato: "A1", "A2" etc. Desta forma, para obter a jogada da CPU teremos o código abaixo:
+
+```python
+jogada = ""
+if tabu.getNomeJogadorDaVez() == jogador1.getNome():
+    jogada = input("Digite sua jogada: ")
+else:
+    movimento_CPU = CPU.getMovimentoCPU()
+    jogada = tabu.getListKeysDecodificador()[movimento_CPU]
+```
+
+### 2.2.4. Código de Jogador vs CPU
+
+Por fim, basta inserir essa última parte do jogo no código e teremos o resultado abaixo:
+
+```python
+from Tabuleiro.tabuleiro import Tabuleiro
+from Tabuleiro.jogador import Jogador
+from Tabuleiro.cpu import CPU
+tabuleiro_velha = Tabuleiro()
+jogador_1 = Jogador("Player 1", "X")
+CPU = CPU()
+tabuleiro_velha.setJogadores(jogador_1)
+tabuleiro_velha.setJogadores(CPU)
+
+while True: 
+    print(tabu.MostrarTabuleiro())
+    if tabu.isGanhador(): #A cada jogada realizada será verificado se houve um ganhador
+        tabu.setVez(tabu.RevezarVez()) #Como o ganhador foi o último jogador, então é necessário revezar a vez para o último jogador.
+        print("O ganhador é ", tabu.getNomeJogadorDaVez())
+    if not tabu.isCasasDisponiveis(): #Se ninguém tiver ganho, então é verificado se o tabuleiro ainda possui casas disponíveis.
+        print("Não houve ganhadores! Empate!")
+    print("Vez dê ", tabu.getNomeJogadorDaVez())
+    jogada = ""
+    if tabu.getNomeJogadorDaVez() == jogador1.getNome():
+        jogada = input("Digite sua jogada: ")
+    else:
+        movimento_CPU = CPU.getMovimentoCPU()
+        jogada = tabu.getListKeysDecodificador()[movimento_CPU]
+    tabu.setJogada(jogada)
+```
