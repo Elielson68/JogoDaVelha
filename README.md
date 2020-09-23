@@ -17,7 +17,7 @@ Caso deseje clonar o projeto todo com um jogo pronto incluso, rode o comando:
 
     git clone https://github.com/Elielson68/JogoDaVelha.git
    
-Para baixar o arquivo .zip basta acessar <a href="https://github.com/Elielson68/JogoDaVelha.git">https://github.com/Elielson68/JogoDaVelha.git</a> e clicar em <b>Code -> Download ZIP</b>.
+Para baixar o arquivo .zip basta acessar <a href="https://github.com/Elielson68/JogoDaVelha/archive/master.zip">https://github.com/Elielson68/JogoDaVelha/archive/master.zip</a>.
 
 # 2 CRIANDO SEU JOGO
 
