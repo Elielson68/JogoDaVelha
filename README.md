@@ -1,7 +1,7 @@
 # JogoDaVelha
 Este é um pacote de jogo da velha desenvolvido em python utilizando conceitos de orientação a objetos.
 
-#1. INSTALAÇÃO
+# 1. INSTALAÇÃO
 
 ## 1.1. Como baixar o jogo em pacote via pip.
 Para instalar a biblioteca via gerenciador de pacotes basta rodar o comando abaixo em seu terminal:
@@ -19,7 +19,7 @@ Caso deseje clonar o projeto todo com um jogo pronto incluso, rode o comando:
    
 Para baixar o arquivo .zip basta acessar <a href="https://github.com/Elielson68/JogoDaVelha.git">https://github.com/Elielson68/JogoDaVelha.git</a> e clicar em <b>Code -> Download ZIP</b>.
 
-#2 CRIANDO SEU JOGO
+# 2 CRIANDO SEU JOGO
 
 Esta biblioteca permite você criar o jogo para ser jogado tanto jogador vs jogador, jogador vs CPU e também CPU vs CPU. Abaixo os passos a passos de como criar cada tipo de jogo.
 
